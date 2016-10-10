@@ -66,6 +66,7 @@ class Question(object):
         return user_answer == self.correct_answer
 
 class Exam(object):
+    """An exam"""
 
     def __init__(self, name):
         self.name = name
@@ -83,7 +84,8 @@ class Exam(object):
         return score
 
 class Quiz(Exam):
-    
+    """Returns true if at least 50 percet of the answers are correct"""
+
     def num_of_questions(self):
         return len(self.question)
 
@@ -92,10 +94,13 @@ class Quiz(Exam):
       
 
 def take_test(exam, student):
+    """Keeps record of student score after exam is administered"""
     score = exam.administer()
     student.score = score
 
 def example():
+    """Creates exam with questions, creates a student, and administer test to that student"""
+    
     exam = Exam("Final Exam")
     exam.add_question("When is the general election being held?", "Tuesday, November 8th")
     exam.add_question("Who is the republican candidate?" , "Donald Trump")
